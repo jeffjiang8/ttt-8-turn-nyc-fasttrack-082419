@@ -10,7 +10,7 @@ def turn(board)
   end
 end
 
-#move 
+#move.1 => destructive method
 def input_to_index(input)
   input.to_i - 1
 end
@@ -34,6 +34,7 @@ def valid_move?(board,index)
   end
 end
 
+#move.2 => destructive method(altering the array for the duration of the program)
 def move(board,position,char = 'X')
   board[position] = char
 end 
