@@ -1,17 +1,19 @@
 #turn 
-def turn(position)
+def turn(board)
   puts "Please enter 1-9: "
-  position = position.chomp
+  input = gets.chomp
+  index = input_to_index(input)
+  if valid_move?(board, index)
+    move(board, index)
+    display_board(board)
+  else turn(board)
+  end
 end
 
 #move 
 def input_to_index(input)
   input.to_i - 1
 end
-
-def move(board,position,char = 'X')
-  board[position] = char
-end 
 
 #position_taken & valid_move
 def position_taken?(board, index)
@@ -25,13 +27,16 @@ def position_taken?(board, index)
 end
 
 def valid_move?(board,index)
-  if board[index] == nil 
+  if board[index] == nil || !index.between?(0,8)
     return false 
     elsif !position_taken?(board, index)
     return true 
   end
 end
 
+def move(board,position,char = 'X')
+  board[position] = char
+end 
 
 #display_board
 def display_board
