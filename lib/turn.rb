@@ -50,7 +50,7 @@ end
 #turn 
 def turn(position)
   puts "Please enter 1-9: "
-  position = position.strip
+  position = position.chomp
 end
 
 
